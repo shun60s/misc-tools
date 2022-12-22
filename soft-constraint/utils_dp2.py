@@ -20,6 +20,8 @@ limitations under the License.
 # 主な変更点：
 # 1個の振り子(signle pendulum)にしたもの
 # 動きのアニメーションanimationの表示を追加
+# 角度と角速度のサンプリングした値をcsvファイルとして保存する
+# 引数　--n_pendulum 1(signle pendulum) または 2(double pendulum)を追加
 # usage:  python utils_dp2.py
 
 
@@ -30,8 +32,9 @@ from scipy.integrate import odeint # 常微分方程式を解く
 from matplotlib import pyplot as plt
 from matplotlib.patches import Circle
 from matplotlib import animation  # add
+import pandas as pd # add
 
-import torch
+#import torch
 
 
 class DoublePendulum:
@@ -183,6 +186,46 @@ class DoublePendulum:
     plt.axis('off')
     plt.savefig('frames/_img{:04d}.png'.format(i//di), dpi=72)
     plt.cla()
+    
+  # add
+  def plot_update(self,frame):
+    #
+    plt.cla()
+    
+    i=int(frame)
+    ###print('i',i)
+    ax.text(0,0, str(self.t[i]) )
+    # Unpack z and theta as a function of time
+    theta1 = self.y[i, 0]
+    theta2 = self.y[i, 2]
+    
+    # Convert to Cartesian coordinates of the two bob positions.
+    x1 = self.L1 * np.sin(theta1)
+    y1 = -self.L1 * np.cos(theta1)
+    x2 = x1 + self.L2 * np.sin(theta2)
+    y2 = y1 - self.L2 * np.cos(theta2)
+    
+    # Plot and save an image of the double pendulum
+    # configuration for time point i.
+    # The pendulum rods.
+    #ax.plot([0, x1], [0, y1], lw=2, c='k')
+    ax.plot([0, x1, x2], [0, y1, y2], lw=2, c='k')
+    
+    # Circles representing the anchor point of rod 1, and bobs 1.
+    r = 0.05
+    c0 = Circle((0, 0), r/2, fc='k', zorder=10)
+    c1 = Circle((x1, y1), r, fc='b', ec='b', zorder=10)
+    c2 = Circle((x2, y2), r, fc='r', ec='r', zorder=10)
+    ax.add_patch(c0)
+    ax.add_patch(c1)
+    ax.add_patch(c2)
+    
+    # Centre the image on the fixed anchor point, and ensure the axes are equal
+    ax.set_xlim(-self.L1-self.L2-r, self.L1+self.L2+r)
+    ax.set_ylim(-self.L1-self.L2-r, self.L1+self.L2+r)
+    ax.set_aspect('equal', adjustable='box')
+    plt.axis('off')
+    
 
 #### add single pendulum 単純な1個の振り子を追加　---------------------------------
 class SinglePendulum:
@@ -493,7 +536,9 @@ if __name__ == '__main__':
   parser.add_argument('--theta2', type=float, default=0.3449, help='Initial theta 2. If None, it will be sampled from [-np.pi/4, np.pi/4]')
   parser.add_argument('--omega2', type=float, default=0.0, help='Initial omega 2. If None, it will be 0.0')
   parser.add_argument('--delta_t', type=float, default=0.005, help='Delta t used to generate a sequence')
-  parser.add_argument('--tmax', type=int, default=1000, help='Max timesteps')
+  parser.add_argument('--tmax', type=int, default=100, help='Max time') # chg default
+  parser.add_argument('--sampling_step', type=int, default=20, help='Sampling timesteps')
+  parser.add_argument('--n_pendulum', type=int, default=1, help='Single-pendulum 1, Double-pendulum 2' )
   args = parser.parse_args()
   
   
@@ -518,22 +563,48 @@ if __name__ == '__main__':
   dp.make_plot(100, ax)
   """
   # Generate DP sequence
-  print("Generate Single-pendulum sequence...")
-  L1, M1, F1 = args.L1, args.M1,  args.F1
+  n_pendulum= args.n_pendulum
+  L1, L2, M1, M2, F1, F2 = args.L1, args.L2, args.M1, args.M2, args.F1, args.F2
   init_theta1 = round(args.theta1, 4) if args.theta1 is not None else round(np.random.uniform(-np.pi/4, np.pi/4), 4)
   init_omega1 = round(args.omega1, 4) if args.omega1 is not None else 0.0
-  
+  init_theta2 = round(args.theta2, 4) if args.theta2 is not None else round(np.random.uniform(-np.pi/4, np.pi/4), 4)
+  init_omega2 = round(args.omega2, 4) if args.omega2 is not None else 0.0
   
   
   tmax, dt = args.tmax, args.delta_t
   print ('dt=', dt)
   print ('tmax=', tmax)
+  sampling_step = args.sampling_step    # sample a row for every the step.
+  print ('sampling_step=', sampling_step)
   min_plot_duration=10 # Specify minimum plot duration time unit[sec].
   plot_duration= min(int(min_plot_duration/dt),int(tmax/dt))  
   
-  dp = SinglePendulum(L1, M1, init_theta1, init_omega1, F1)
+  if n_pendulum == 1:
+      print("Generate Single-pendulum sequence...")
+      dp = SinglePendulum(L1, M1, init_theta1, init_omega1, F1)
+  elif n_pendulum == 2:
+      print("Generate Double-pendulum sequence...")
+      dp = DoublePendulum(L1, L2, M1, M2, init_theta1, init_omega1, init_theta2, init_omega2, F1, F2)
   
   t, y = dp.generate(tmax=tmax, dt=dt)
+  
+  # add save sampling  t, y as a csv file
+  # Fine dt for generation and subsample for learning
+  sampling_dt = dt*sampling_step
+  sampling_ind = np.arange(0, t.shape[0] - 1, sampling_step)
+  sampling_t = t[sampling_ind]
+  sampling_y = y[sampling_ind]  ### sampling_step(default 20)毎に値を取り出す
+  
+  if n_pendulum == 1:
+      df = pd.DataFrame(data={'time': sampling_t, 'angular': sampling_y[:,0], 'velocity': sampling_y[:,1]})
+      FileOutputCSV = 'sampling1_t_y.csv'
+  elif n_pendulum == 2:
+      df = pd.DataFrame(data={'time': sampling_t, 'angular0': sampling_y[:,0], 'velocity0': sampling_y[:,1], 'angular': sampling_y[:,2], 'velocity': sampling_y[:,2]})
+      FileOutputCSV = 'sampling2_t_y.csv'
+      
+  df.to_csv( FileOutputCSV, index = False)
+  print ("wrote ", FileOutputCSV) 
+  
   
   # plot
   fig = plt.figure()
@@ -541,3 +612,4 @@ if __name__ == '__main__':
   ani = animation.FuncAnimation( fig, dp.plot_update,interval=int(dt*1000),frames=np.arange(0, plot_duration, 1), repeat=False)
 
   plt.show()
+  
