@@ -525,10 +525,10 @@ if __name__ == '__main__':
   parser = ArgumentParser(description='utils_dp2')
   parser.add_argument('--L1', type=float, default=1.0, help='Pendulum rod length 1')
   parser.add_argument('--L2', type=float, default=1.0, help='Pendulum rod length 2')
-  parser.add_argument('--M1', type=float, default=1.0, help='Pendulum mass 1')
-  parser.add_argument('--M2', type=float, default=5.0, help='Pendulum mass 2')
+  parser.add_argument('--M1', type=float, default=2.0, help='Pendulum mass 1')  # chg default value to 2
+  parser.add_argument('--M2', type=float, default=1.0, help='Pendulum mass 2')  # chg default value to 1
   parser.add_argument('--F1', type=float, default=0.2, help='Friction coefficient 1')  # chg default value to 0.2 from 0.001
-  parser.add_argument('--F2', type=float, default=0.001, help='Friction coefficient 2')
+  parser.add_argument('--F2', type=float, default=0.2, help='Friction coefficient 2')  # chg default value to 0.2 
   
   ### Initial conditions: theta1　1番目の振り子の角度90度から-90度の範囲, dtheta1/dt(=omega1?)速度, theta2　2番目の振り子の角度と速度, dtheta2/dt.
   parser.add_argument('--theta1', type=float, default=0.4725, help='Initial theta 1. If None, it will be sampled from [-np.pi/4, np.pi/4]')
@@ -576,8 +576,6 @@ if __name__ == '__main__':
   print ('tmax=', tmax)
   sampling_step = args.sampling_step    # sample a row for every the step.
   print ('sampling_step=', sampling_step)
-  min_plot_duration=10 # Specify minimum plot duration time unit[sec].
-  plot_duration= min(int(min_plot_duration/dt),int(tmax/dt))  
   
   if n_pendulum == 1:
       print("Generate Single-pendulum sequence...")
@@ -598,9 +596,11 @@ if __name__ == '__main__':
   if n_pendulum == 1:
       df = pd.DataFrame(data={'time': sampling_t, 'angular': sampling_y[:,0], 'velocity': sampling_y[:,1]})
       FileOutputCSV = 'sampling1_t_y.csv'
+      min_plot_duration=10 # Specify minimum plot duration time unit[sec].
   elif n_pendulum == 2:
       df = pd.DataFrame(data={'time': sampling_t, 'angular0': sampling_y[:,0], 'velocity0': sampling_y[:,1], 'angular': sampling_y[:,2], 'velocity': sampling_y[:,2]})
       FileOutputCSV = 'sampling2_t_y.csv'
+      min_plot_duration=20 # Specify minimum plot duration time unit[sec].
       
   df.to_csv( FileOutputCSV, index = False)
   print ("wrote ", FileOutputCSV) 
@@ -609,7 +609,8 @@ if __name__ == '__main__':
   # plot
   fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
-  ani = animation.FuncAnimation( fig, dp.plot_update,interval=int(dt*1000),frames=np.arange(0, plot_duration, 1), repeat=False)
+  plot_duration= min(int(min_plot_duration/dt),int(tmax/dt))  
+  ani = animation.FuncAnimation( fig, dp.plot_update,interval=int(dt * 1000),frames=np.arange(0, plot_duration, 1), repeat=False)
 
   plt.show()
   
