@@ -13,11 +13,10 @@ tate yoko position [0.1, 33.0] [0.0, 1.0]
 sekibun step 0.01  
 tate yoko bunkatu number  3290 100  
 sekibun (4.99999386888865 + 0.00026736587192154j)  
-
 ```
 
 ### 積分のステップを小さく(0.01から0.001)して計算精度を上げたもの　計算時間が掛かる
-```  
+``` 
 python test1.py -d 0.001  
 tate yoko position [0.1, 33.0] [0.0, 1.0]  
 sekibun step 0.001  
@@ -43,5 +42,5 @@ tate yoko bunkatu number  9990 100
 sekibun (28.9999988534685 + 0.000267366957181842j)
 ```
 
-##　参考リンク  
+## 参考リンク  
 [Riemann Zeta 関数の零点のリスト](https://www-users.cse.umn.edu/~odlyzko/zeta_tables/)  
