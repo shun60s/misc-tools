@@ -23,7 +23,7 @@ tate yoko position [0.1, 33.0] [0.0, 1.0]
 sekibun step 0.001  
 tate yoko bunkatu number  32900 1000  
 sekibun (4.9999999386888 + 2.67364609117596e-6j)  
-```  
+```
 
 ### 1+j0の極を含む□領域の計算　1個減って4になる  
 ```
