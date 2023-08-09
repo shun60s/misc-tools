@@ -15,6 +15,9 @@ sekibun step 0.01
 tate yoko bunkatu number  3290 100  
 sekibun (4.99999386888865 + 0.00026736587192154j)  
 ```
+![figure1](docs/fig1.png)  
+
+
 
 ### 積分のステップを小さく(0.01から0.001)して計算精度を上げたもの　計算時間が掛かる
 ``` 
@@ -25,6 +28,8 @@ tate yoko bunkatu number  32900 1000
 sekibun (4.9999999386888 + 2.67364609117596e-6j)  
 ```
 
+
+
 ### 1+j0の極を含む□領域の計算　1個減って4になる  
 ```
 python test1.py -y 1.1 -a -0.1
@@ -33,6 +38,9 @@ sekibun step 0.01
 tate yoko bunkatu number  3310 110
 sekibun (4.00012873370994 + 5.0342983213897e-6j)
 ```
+![figure2](docs/fig2.png)  
+
+
 
 ### j100までの□領域の零点の計算　零点の数は29個となった  
 ```
@@ -42,10 +50,12 @@ sekibun step 0.01
 tate yoko bunkatu number  9990 100
 sekibun (28.9999988534685 + 0.000267366957181842j)
 ```
+![figure3](docs/fig3.png)  
+
 
 
 ## ノートブック  
-[google colabで計算させるためのノートブック](https://colab.research.google.com/github/shun60s/misc-tools/blob/master/Riemann_Zeta_piecewise_quadrature/Riemann_Zeta_piecewise_quadrature_1.ipynb)  
+[Colaboratoryで計算させるためのノートブック](https://colab.research.google.com/github/shun60s/misc-tools/blob/master/Riemann_Zeta_piecewise_quadrature/Riemann_Zeta_piecewise_quadrature_1.ipynb)  
 
 
 ## 参考リンク  
