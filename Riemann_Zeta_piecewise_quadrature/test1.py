@@ -66,15 +66,15 @@ if __name__ == '__main__':
     
     # (1)□領域と分割ステップを指定する
     # □領域
-    #w0=[0.0, 1.0]  # □の横幅　実数の幅
-    #h0=[1.0, 33.0] # □の高さ　虚数の高さ
+    #w0=[0.0, 1.0]  # □の横幅　臨界領域の実数の幅
+    #h0=[1.0, 33.0] # □の高さ　最初の非自明な零点を５個含む虚数の高さ
     w0=[ args.x0, args.x1 ]
     h0=[ args.y0, args.y1 ]
     
     
     print("tate yoko position",h0,w0)
-    #　分割ステップ
-    #delta0=0.1 #0.001
+    #　区分求積法の分割ステップ
+    #delta0=0.01
     delta0= args.delta
     
     print("sekibun step", delta0)

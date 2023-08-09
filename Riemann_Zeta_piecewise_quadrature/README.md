@@ -2,7 +2,8 @@
 
 ## 概要  
 Riemann Zeta 関数の、□領域を区分求積法で、偏角の原理を計算する。  
-積分の結果は、□領域に含まれる　「零点の数　－　極の数」　になるはずである。  
+積分の結果は、□領域に含まれる　「零点の数　－　極の数」　になる。  
+実際の計算には誤差があるため、ぴったり整数にはならない。  
 Riemann Zeta 関数とその導関数の計算は、mpmathを利用した。  
 
 ## 使い方  
@@ -41,6 +42,11 @@ sekibun step 0.01
 tate yoko bunkatu number  9990 100
 sekibun (28.9999988534685 + 0.000267366957181842j)
 ```
+
+
+## ノートブック  
+[google colabで計算させるためのノートブック](https://colab.research.google.com/github/shun60s/ADTLib-trial/blob/master/Riemann_Zeta_piecewise_quadrature/Riemann_Zeta_piecewise_quadrature_1.ipynb)  
+
 
 ## 参考リンク  
 [Riemann Zeta 関数の零点のリスト](https://www-users.cse.umn.edu/~odlyzko/zeta_tables/)  
