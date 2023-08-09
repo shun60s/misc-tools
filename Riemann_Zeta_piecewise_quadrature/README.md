@@ -45,7 +45,7 @@ sekibun (28.9999988534685 + 0.000267366957181842j)
 
 
 ## ノートブック  
-[google colabで計算させるためのノートブック](https://colab.research.google.com/github/shun60s/ADTLib-trial/blob/master/Riemann_Zeta_piecewise_quadrature/Riemann_Zeta_piecewise_quadrature_1.ipynb)  
+[google colabで計算させるためのノートブック](https://colab.research.google.com/github/shun60s/misc-tools/blob/master/Riemann_Zeta_piecewise_quadrature/Riemann_Zeta_piecewise_quadrature_1.ipynb)  
 
 
 ## 参考リンク  
