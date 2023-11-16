@@ -15,7 +15,7 @@ python3 main.py --z-dim 2
 python3 main.py --load-model  --skip-train  
 ```
 
-##　ライセンス  
+## ライセンス  
   
 オリジナルコードのライセンスはLICENSE-VAE-main.txtを参照のこと。  
 
