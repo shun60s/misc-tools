@@ -1,0 +1,311 @@
+C:>python main.py
+-----Start training-----
+[EPOCH1] loss_valid: 206214 | Loss_valid_min: 206214
+[EPOCH2] loss_valid: 195324 | Loss_valid_min: 195324
+[EPOCH3] loss_valid: 185576 | Loss_valid_min: 185576
+[EPOCH4] loss_valid: 170213 | Loss_valid_min: 170213
+[EPOCH5] loss_valid: 154737 | Loss_valid_min: 154737
+[EPOCH6] loss_valid: 147115 | Loss_valid_min: 147115
+[EPOCH7] loss_valid: 139574 | Loss_valid_min: 139574
+[EPOCH8] loss_valid: 134882 | Loss_valid_min: 134882
+[EPOCH9] loss_valid: 131740 | Loss_valid_min: 131740
+[EPOCH10] loss_valid: 129010 | Loss_valid_min: 129010
+[EPOCH11] loss_valid: 126323 | Loss_valid_min: 126323
+[EPOCH12] loss_valid: 124240 | Loss_valid_min: 124240
+[EPOCH13] loss_valid: 122005 | Loss_valid_min: 122005
+[EPOCH14] loss_valid: 119925 | Loss_valid_min: 119925
+[EPOCH15] loss_valid: 118344 | Loss_valid_min: 118344
+[EPOCH16] loss_valid: 117132 | Loss_valid_min: 117132
+[EPOCH17] loss_valid: 116368 | Loss_valid_min: 116368
+[EPOCH18] loss_valid: 115369 | Loss_valid_min: 115369
+[EPOCH19] loss_valid: 114732 | Loss_valid_min: 114732
+[EPOCH20] loss_valid: 113850 | Loss_valid_min: 113850
+[EPOCH21] loss_valid: 113312 | Loss_valid_min: 113312
+[EPOCH22] loss_valid: 112806 | Loss_valid_min: 112806
+[EPOCH23] loss_valid: 112259 | Loss_valid_min: 112259
+[EPOCH24] loss_valid: 111904 | Loss_valid_min: 111904
+[EPOCH25] loss_valid: 111339 | Loss_valid_min: 111339
+[EPOCH26] loss_valid: 111061 | Loss_valid_min: 111061
+[EPOCH27] loss_valid: 110703 | Loss_valid_min: 110703
+[EPOCH28] loss_valid: 110356 | Loss_valid_min: 110356
+[EPOCH29] loss_valid: 110055 | Loss_valid_min: 110055
+[EPOCH30] loss_valid: 109833 | Loss_valid_min: 109833
+[EPOCH31] loss_valid: 109406 | Loss_valid_min: 109406
+[EPOCH32] loss_valid: 109077 | Loss_valid_min: 109077
+[EPOCH33] loss_valid: 108810 | Loss_valid_min: 108810
+[EPOCH34] loss_valid: 109076 | Loss_valid_min: 108810
+Validation got worse for the 1 time in a row.
+[EPOCH35] loss_valid: 108478 | Loss_valid_min: 108478
+[EPOCH36] loss_valid: 108396 | Loss_valid_min: 108396
+[EPOCH37] loss_valid: 108212 | Loss_valid_min: 108212
+[EPOCH38] loss_valid: 107807 | Loss_valid_min: 107807
+[EPOCH39] loss_valid: 107617 | Loss_valid_min: 107617
+[EPOCH40] loss_valid: 107645 | Loss_valid_min: 107617
+Validation got worse for the 1 time in a row.
+[EPOCH41] loss_valid: 107412 | Loss_valid_min: 107412
+[EPOCH42] loss_valid: 107219 | Loss_valid_min: 107219
+[EPOCH43] loss_valid: 106987 | Loss_valid_min: 106987
+[EPOCH44] loss_valid: 106942 | Loss_valid_min: 106942
+[EPOCH45] loss_valid: 106807 | Loss_valid_min: 106807
+[EPOCH46] loss_valid: 106793 | Loss_valid_min: 106793
+[EPOCH47] loss_valid: 106601 | Loss_valid_min: 106601
+[EPOCH48] loss_valid: 106493 | Loss_valid_min: 106493
+[EPOCH49] loss_valid: 106348 | Loss_valid_min: 106348
+[EPOCH50] loss_valid: 106419 | Loss_valid_min: 106348
+Validation got worse for the 1 time in a row.
+[EPOCH51] loss_valid: 106078 | Loss_valid_min: 106078
+[EPOCH52] loss_valid: 105829 | Loss_valid_min: 105829
+[EPOCH53] loss_valid: 105893 | Loss_valid_min: 105829
+Validation got worse for the 1 time in a row.
+[EPOCH54] loss_valid: 105837 | Loss_valid_min: 105829
+Validation got worse for the 2 time in a row.
+[EPOCH55] loss_valid: 105688 | Loss_valid_min: 105688
+[EPOCH56] loss_valid: 105646 | Loss_valid_min: 105646
+[EPOCH57] loss_valid: 105524 | Loss_valid_min: 105524
+[EPOCH58] loss_valid: 105423 | Loss_valid_min: 105423
+[EPOCH59] loss_valid: 105399 | Loss_valid_min: 105399
+[EPOCH60] loss_valid: 105463 | Loss_valid_min: 105399
+Validation got worse for the 1 time in a row.
+[EPOCH61] loss_valid: 105406 | Loss_valid_min: 105399
+Validation got worse for the 2 time in a row.
+[EPOCH62] loss_valid: 105230 | Loss_valid_min: 105230
+[EPOCH63] loss_valid: 105092 | Loss_valid_min: 105092
+[EPOCH64] loss_valid: 104904 | Loss_valid_min: 104904
+[EPOCH65] loss_valid: 104807 | Loss_valid_min: 104807
+[EPOCH66] loss_valid: 104820 | Loss_valid_min: 104807
+Validation got worse for the 1 time in a row.
+[EPOCH67] loss_valid: 104794 | Loss_valid_min: 104794
+[EPOCH68] loss_valid: 104597 | Loss_valid_min: 104597
+[EPOCH69] loss_valid: 104688 | Loss_valid_min: 104597
+Validation got worse for the 1 time in a row.
+[EPOCH70] loss_valid: 104488 | Loss_valid_min: 104488
+[EPOCH71] loss_valid: 104439 | Loss_valid_min: 104439
+[EPOCH72] loss_valid: 104525 | Loss_valid_min: 104439
+Validation got worse for the 1 time in a row.
+[EPOCH73] loss_valid: 104417 | Loss_valid_min: 104417
+[EPOCH74] loss_valid: 104190 | Loss_valid_min: 104190
+[EPOCH75] loss_valid: 104177 | Loss_valid_min: 104177
+[EPOCH76] loss_valid: 104320 | Loss_valid_min: 104177
+Validation got worse for the 1 time in a row.
+[EPOCH77] loss_valid: 104028 | Loss_valid_min: 104028
+[EPOCH78] loss_valid: 104017 | Loss_valid_min: 104017
+[EPOCH79] loss_valid: 104048 | Loss_valid_min: 104017
+Validation got worse for the 1 time in a row.
+[EPOCH80] loss_valid: 103968 | Loss_valid_min: 103968
+[EPOCH81] loss_valid: 103835 | Loss_valid_min: 103835
+[EPOCH82] loss_valid: 103853 | Loss_valid_min: 103835
+Validation got worse for the 1 time in a row.
+[EPOCH83] loss_valid: 104007 | Loss_valid_min: 103835
+Validation got worse for the 2 time in a row.
+[EPOCH84] loss_valid: 103830 | Loss_valid_min: 103830
+[EPOCH85] loss_valid: 103743 | Loss_valid_min: 103743
+[EPOCH86] loss_valid: 103607 | Loss_valid_min: 103607
+[EPOCH87] loss_valid: 103750 | Loss_valid_min: 103607
+Validation got worse for the 1 time in a row.
+[EPOCH88] loss_valid: 103684 | Loss_valid_min: 103607
+Validation got worse for the 2 time in a row.
+[EPOCH89] loss_valid: 103526 | Loss_valid_min: 103526
+[EPOCH90] loss_valid: 103552 | Loss_valid_min: 103526
+Validation got worse for the 1 time in a row.
+[EPOCH91] loss_valid: 103518 | Loss_valid_min: 103518
+[EPOCH92] loss_valid: 103426 | Loss_valid_min: 103426
+[EPOCH93] loss_valid: 103346 | Loss_valid_min: 103346
+[EPOCH94] loss_valid: 103307 | Loss_valid_min: 103307
+[EPOCH95] loss_valid: 103383 | Loss_valid_min: 103307
+Validation got worse for the 1 time in a row.
+[EPOCH96] loss_valid: 103336 | Loss_valid_min: 103307
+Validation got worse for the 2 time in a row.
+[EPOCH97] loss_valid: 103240 | Loss_valid_min: 103240
+[EPOCH98] loss_valid: 103191 | Loss_valid_min: 103191
+[EPOCH99] loss_valid: 103164 | Loss_valid_min: 103164
+[EPOCH100] loss_valid: 103187 | Loss_valid_min: 103164
+Validation got worse for the 1 time in a row.
+[EPOCH101] loss_valid: 103043 | Loss_valid_min: 103043
+[EPOCH102] loss_valid: 103088 | Loss_valid_min: 103043
+Validation got worse for the 1 time in a row.
+[EPOCH103] loss_valid: 103170 | Loss_valid_min: 103043
+Validation got worse for the 2 time in a row.
+[EPOCH104] loss_valid: 102957 | Loss_valid_min: 102957
+[EPOCH105] loss_valid: 102984 | Loss_valid_min: 102957
+Validation got worse for the 1 time in a row.
+[EPOCH106] loss_valid: 103057 | Loss_valid_min: 102957
+Validation got worse for the 2 time in a row.
+[EPOCH107] loss_valid: 102999 | Loss_valid_min: 102957
+Validation got worse for the 3 time in a row.
+[EPOCH108] loss_valid: 103004 | Loss_valid_min: 102957
+Validation got worse for the 4 time in a row.
+[EPOCH109] loss_valid: 102949 | Loss_valid_min: 102949
+[EPOCH110] loss_valid: 102879 | Loss_valid_min: 102879
+[EPOCH111] loss_valid: 102678 | Loss_valid_min: 102678
+[EPOCH112] loss_valid: 102996 | Loss_valid_min: 102678
+Validation got worse for the 1 time in a row.
+[EPOCH113] loss_valid: 102807 | Loss_valid_min: 102678
+Validation got worse for the 2 time in a row.
+[EPOCH114] loss_valid: 102629 | Loss_valid_min: 102629
+[EPOCH115] loss_valid: 102694 | Loss_valid_min: 102629
+Validation got worse for the 1 time in a row.
+[EPOCH116] loss_valid: 102648 | Loss_valid_min: 102629
+Validation got worse for the 2 time in a row.
+[EPOCH117] loss_valid: 102758 | Loss_valid_min: 102629
+Validation got worse for the 3 time in a row.
+[EPOCH118] loss_valid: 102734 | Loss_valid_min: 102629
+Validation got worse for the 4 time in a row.
+[EPOCH119] loss_valid: 102716 | Loss_valid_min: 102629
+Validation got worse for the 5 time in a row.
+[EPOCH120] loss_valid: 102583 | Loss_valid_min: 102583
+[EPOCH121] loss_valid: 102583 | Loss_valid_min: 102583
+[EPOCH122] loss_valid: 102501 | Loss_valid_min: 102501
+[EPOCH123] loss_valid: 102511 | Loss_valid_min: 102501
+Validation got worse for the 1 time in a row.
+[EPOCH124] loss_valid: 102499 | Loss_valid_min: 102499
+[EPOCH125] loss_valid: 102530 | Loss_valid_min: 102499
+Validation got worse for the 1 time in a row.
+[EPOCH126] loss_valid: 102491 | Loss_valid_min: 102491
+[EPOCH127] loss_valid: 102453 | Loss_valid_min: 102453
+[EPOCH128] loss_valid: 102592 | Loss_valid_min: 102453
+Validation got worse for the 1 time in a row.
+[EPOCH129] loss_valid: 102503 | Loss_valid_min: 102453
+Validation got worse for the 2 time in a row.
+[EPOCH130] loss_valid: 102423 | Loss_valid_min: 102423
+[EPOCH131] loss_valid: 102334 | Loss_valid_min: 102334
+[EPOCH132] loss_valid: 102403 | Loss_valid_min: 102334
+Validation got worse for the 1 time in a row.
+[EPOCH133] loss_valid: 102228 | Loss_valid_min: 102228
+[EPOCH134] loss_valid: 102310 | Loss_valid_min: 102228
+Validation got worse for the 1 time in a row.
+[EPOCH135] loss_valid: 102229 | Loss_valid_min: 102228
+Validation got worse for the 2 time in a row.
+[EPOCH136] loss_valid: 102149 | Loss_valid_min: 102149
+[EPOCH137] loss_valid: 102322 | Loss_valid_min: 102149
+Validation got worse for the 1 time in a row.
+[EPOCH138] loss_valid: 102244 | Loss_valid_min: 102149
+Validation got worse for the 2 time in a row.
+[EPOCH139] loss_valid: 102364 | Loss_valid_min: 102149
+Validation got worse for the 3 time in a row.
+[EPOCH140] loss_valid: 102252 | Loss_valid_min: 102149
+Validation got worse for the 4 time in a row.
+[EPOCH141] loss_valid: 102122 | Loss_valid_min: 102122
+[EPOCH142] loss_valid: 102013 | Loss_valid_min: 102013
+[EPOCH143] loss_valid: 102175 | Loss_valid_min: 102013
+Validation got worse for the 1 time in a row.
+[EPOCH144] loss_valid: 102239 | Loss_valid_min: 102013
+Validation got worse for the 2 time in a row.
+[EPOCH145] loss_valid: 102088 | Loss_valid_min: 102013
+Validation got worse for the 3 time in a row.
+[EPOCH146] loss_valid: 102123 | Loss_valid_min: 102013
+Validation got worse for the 4 time in a row.
+[EPOCH147] loss_valid: 102026 | Loss_valid_min: 102013
+Validation got worse for the 5 time in a row.
+[EPOCH148] loss_valid: 102046 | Loss_valid_min: 102013
+Validation got worse for the 6 time in a row.
+[EPOCH149] loss_valid: 102169 | Loss_valid_min: 102013
+Validation got worse for the 7 time in a row.
+[EPOCH150] loss_valid: 102077 | Loss_valid_min: 102013
+Validation got worse for the 8 time in a row.
+[EPOCH151] loss_valid: 101996 | Loss_valid_min: 101996
+[EPOCH152] loss_valid: 102156 | Loss_valid_min: 101996
+Validation got worse for the 1 time in a row.
+[EPOCH153] loss_valid: 102149 | Loss_valid_min: 101996
+Validation got worse for the 2 time in a row.
+[EPOCH154] loss_valid: 102160 | Loss_valid_min: 101996
+Validation got worse for the 3 time in a row.
+[EPOCH155] loss_valid: 101962 | Loss_valid_min: 101962
+[EPOCH156] loss_valid: 102035 | Loss_valid_min: 101962
+Validation got worse for the 1 time in a row.
+[EPOCH157] loss_valid: 102134 | Loss_valid_min: 101962
+Validation got worse for the 2 time in a row.
+[EPOCH158] loss_valid: 101963 | Loss_valid_min: 101962
+Validation got worse for the 3 time in a row.
+[EPOCH159] loss_valid: 101928 | Loss_valid_min: 101928
+[EPOCH160] loss_valid: 101902 | Loss_valid_min: 101902
+[EPOCH161] loss_valid: 101877 | Loss_valid_min: 101877
+[EPOCH162] loss_valid: 101826 | Loss_valid_min: 101826
+[EPOCH163] loss_valid: 101866 | Loss_valid_min: 101826
+Validation got worse for the 1 time in a row.
+[EPOCH164] loss_valid: 101998 | Loss_valid_min: 101826
+Validation got worse for the 2 time in a row.
+[EPOCH165] loss_valid: 101877 | Loss_valid_min: 101826
+Validation got worse for the 3 time in a row.
+[EPOCH166] loss_valid: 101868 | Loss_valid_min: 101826
+Validation got worse for the 4 time in a row.
+[EPOCH167] loss_valid: 101910 | Loss_valid_min: 101826
+Validation got worse for the 5 time in a row.
+[EPOCH168] loss_valid: 101916 | Loss_valid_min: 101826
+Validation got worse for the 6 time in a row.
+[EPOCH169] loss_valid: 101825 | Loss_valid_min: 101825
+[EPOCH170] loss_valid: 101831 | Loss_valid_min: 101825
+Validation got worse for the 1 time in a row.
+[EPOCH171] loss_valid: 101722 | Loss_valid_min: 101722
+[EPOCH172] loss_valid: 101757 | Loss_valid_min: 101722
+Validation got worse for the 1 time in a row.
+[EPOCH173] loss_valid: 101869 | Loss_valid_min: 101722
+Validation got worse for the 2 time in a row.
+[EPOCH174] loss_valid: 101700 | Loss_valid_min: 101700
+[EPOCH175] loss_valid: 101705 | Loss_valid_min: 101700
+Validation got worse for the 1 time in a row.
+[EPOCH176] loss_valid: 101655 | Loss_valid_min: 101655
+[EPOCH177] loss_valid: 101774 | Loss_valid_min: 101655
+Validation got worse for the 1 time in a row.
+[EPOCH178] loss_valid: 101607 | Loss_valid_min: 101607
+[EPOCH179] loss_valid: 101718 | Loss_valid_min: 101607
+Validation got worse for the 1 time in a row.
+[EPOCH180] loss_valid: 101734 | Loss_valid_min: 101607
+Validation got worse for the 2 time in a row.
+[EPOCH181] loss_valid: 101562 | Loss_valid_min: 101562
+[EPOCH182] loss_valid: 101630 | Loss_valid_min: 101562
+Validation got worse for the 1 time in a row.
+[EPOCH183] loss_valid: 101570 | Loss_valid_min: 101562
+Validation got worse for the 2 time in a row.
+[EPOCH184] loss_valid: 101623 | Loss_valid_min: 101562
+Validation got worse for the 3 time in a row.
+[EPOCH185] loss_valid: 101583 | Loss_valid_min: 101562
+Validation got worse for the 4 time in a row.
+[EPOCH186] loss_valid: 101673 | Loss_valid_min: 101562
+Validation got worse for the 5 time in a row.
+[EPOCH187] loss_valid: 101757 | Loss_valid_min: 101562
+Validation got worse for the 6 time in a row.
+[EPOCH188] loss_valid: 101556 | Loss_valid_min: 101556
+[EPOCH189] loss_valid: 101618 | Loss_valid_min: 101556
+Validation got worse for the 1 time in a row.
+[EPOCH190] loss_valid: 101582 | Loss_valid_min: 101556
+Validation got worse for the 2 time in a row.
+[EPOCH191] loss_valid: 101704 | Loss_valid_min: 101556
+Validation got worse for the 3 time in a row.
+[EPOCH192] loss_valid: 101588 | Loss_valid_min: 101556
+Validation got worse for the 4 time in a row.
+[EPOCH193] loss_valid: 101659 | Loss_valid_min: 101556
+Validation got worse for the 5 time in a row.
+[EPOCH194] loss_valid: 101577 | Loss_valid_min: 101556
+Validation got worse for the 6 time in a row.
+[EPOCH195] loss_valid: 101450 | Loss_valid_min: 101450
+[EPOCH196] loss_valid: 101483 | Loss_valid_min: 101450
+Validation got worse for the 1 time in a row.
+[EPOCH197] loss_valid: 101587 | Loss_valid_min: 101450
+Validation got worse for the 2 time in a row.
+[EPOCH198] loss_valid: 101584 | Loss_valid_min: 101450
+Validation got worse for the 3 time in a row.
+[EPOCH199] loss_valid: 101440 | Loss_valid_min: 101440
+[EPOCH200] loss_valid: 101390 | Loss_valid_min: 101390
+[EPOCH201] loss_valid: 101571 | Loss_valid_min: 101390
+Validation got worse for the 1 time in a row.
+[EPOCH202] loss_valid: 101405 | Loss_valid_min: 101390
+Validation got worse for the 2 time in a row.
+[EPOCH203] loss_valid: 101472 | Loss_valid_min: 101390
+Validation got worse for the 3 time in a row.
+[EPOCH204] loss_valid: 101510 | Loss_valid_min: 101390
+Validation got worse for the 4 time in a row.
+[EPOCH205] loss_valid: 101483 | Loss_valid_min: 101390
+Validation got worse for the 5 time in a row.
+[EPOCH206] loss_valid: 101439 | Loss_valid_min: 101390
+Validation got worse for the 6 time in a row.
+[EPOCH207] loss_valid: 101497 | Loss_valid_min: 101390
+Validation got worse for the 7 time in a row.
+[EPOCH208] loss_valid: 101400 | Loss_valid_min: 101390
+Validation got worse for the 8 time in a row.
+[EPOCH209] loss_valid: 101509 | Loss_valid_min: 101390
+Validation got worse for the 9 time in a row.
+[EPOCH210] loss_valid: 101449 | Loss_valid_min: 101390
+Validation got worse for the 10 time in a row.
+Apply early stopping
+-----Stop training-----
+-----Start Visualization-----
