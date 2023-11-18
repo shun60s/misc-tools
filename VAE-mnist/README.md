@@ -7,12 +7,12 @@
 
 潜在変数latent variableの次元を指定する。  
 ```
-python3 main.py --z-dim 2  
+python main.py --z-dim 2  
 ```
 
 前回の学習したDICをロードする。学習をスキップして、imagesを描く。  
 ```
-python3 main.py --load-model  --skip-train  
+python main.py --load-model  --skip-train  
 ```
 
 ## ライセンス  
