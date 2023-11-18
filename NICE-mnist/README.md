@@ -1,6 +1,6 @@
 # NICE MNIST
 
-手書き数字文字のMNISTを使った、NNを使った生成手法の一つである、NICEの勉強用。   
+手書き数字文字のMNISTを使った、NNを使った生成手法の一つであるNICEの勉強用。   
 [コード[github repository](https://github.com/fmu2/NICE)を自分の環境で動くように改造したもの。  
 
 ## 追加した引数

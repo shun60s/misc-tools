@@ -1,5 +1,15 @@
+# -*- coding: UTF-8 -*-
 """Utility classes for NICE.
 """
+# There are some changes from original NICE-master's code. 
+# This is CPU  beside original uses CUDA.
+# Please see LICENSE-NICE-master.txt about the original license.
+#
+# Check version:
+#    Python 3.6.4 on win32
+#    torch  1.7.1+cpu
+#    torchvision 0.8.2+cpu
+#    numpy 1.19.5
 
 import torch
 import torch.nn as nn
