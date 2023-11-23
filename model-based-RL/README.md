@@ -34,10 +34,28 @@ B = self.B2(F.relu(self.B1(xu)))
 policy_frequency 5  
  
 ## 計画 planner 
- 
-学習した力学的モデルを使って　1歩1歩　総当り的に？　調べて、アクションを決めていくのか？ model-free より効率が悪いとの説明あり。  
 
 ![](docs/planner.png)  
+
+  
+  
+state = state.expand(population, -1) 現在のstate を100個　複製して、  
+NORMAL分布のアクションを生成して、predict_trajectoryでaction_repeat回後のstateを予想する。  
+  
+REWARDの上位10個からの新しい平均値と分散を計算する。  
+best_actions = actions[:, best, :]  
+action_mean = best_actions.mean(dim=1, keepdim=True)  
+action_std = best_actions.std(dim=1, unbiased=False, keepdim=True)  
+  
+上記をiterations回す。  
+  
+最後の平均値をactionとして、次のstateに進む。  
+  
+結果は上手く行っていない。各パラメータを変更してみても、上手くならい。  
+理由は不明であるが、このplannerは上手く動かない。  
+  
+  
+
 
 
 
