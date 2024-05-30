@@ -26,7 +26,7 @@ from torch.optim.lr_scheduler import StepLR
 import numpy as np
 
 class Net(nn.Module):
-    def __init__(self):
+    def __init__(self,device):
         super(Net, self).__init__()
         self.conv1 = nn.Conv2d(1, 32, 2, 1)
         
@@ -36,7 +36,7 @@ class Net(nn.Module):
         self.conv3 = nn.Conv2d(self.lout, self.lout, 2)
         self.conv4 = nn.Conv2d(self.lout, self.lout, 2)
         
-        self.define_r3x3()
+        self.define_r3x3(device)
         self.fc1 = nn.Linear(self.lout * self.r3x3.size(0), 10)
 
     def forward(self, x):
@@ -67,7 +67,7 @@ class Net(nn.Module):
         
         return output
 
-    def define_r3x3(self):
+    def define_r3x3(self,device):
     	# eleven 3x3 pixels basis functions definition
         self.r3x3 = torch.tensor([     \
                         # 1st
@@ -113,7 +113,7 @@ class Net(nn.Module):
                         # 11th
                         [[1.0, 0, 0],  \
                          [0, 1.0, 0],  \
-                         [0, 0, 1.0]]], requires_grad=False)
+                         [0, 0, 1.0]]], requires_grad=False, device=device)
 
 
 def train(args, model, device, train_loader, optimizer, epoch):
@@ -152,7 +152,7 @@ def test(model, device, test_loader):
         100. * correct / len(test_loader.dataset)))
 
 
-def show_incorrect_image(model, device, test_loader, show_max_number=2):
+def show_incorrect_image(model, device, test_loader, show_max_number=4):
     # show incorrect prediction image with binarization
     model.eval()
     count=0
@@ -232,7 +232,7 @@ def main():
                         help='For Saving the current Model')
     parser.add_argument('--load-model', action='store_true', default=False,
                         help='For Loading the previous Model')
-    args = parser.parse_args()
+    args = parser.parse_args()  #  = parser.parse_args(args=[])
     use_cuda = args.use_cuda and torch.cuda.is_available()
     
     
@@ -246,7 +246,7 @@ def main():
     train_kwargs = {'batch_size': args.batch_size}
     test_kwargs = {'batch_size': args.test_batch_size}
     if use_cuda:
-        cuda_kwargs = {'num_workers': 1,
+        cuda_kwargs = {'num_workers': 10,
                        'pin_memory': True,
                        'shuffle': True}
         train_kwargs.update(cuda_kwargs)
@@ -263,7 +263,7 @@ def main():
     train_loader = torch.utils.data.DataLoader(dataset1,**train_kwargs)
     test_loader = torch.utils.data.DataLoader(dataset2, **test_kwargs)
     
-    model = Net().to(device)
+    model = Net(device).to(device)
     
     model_path ="mnist_cnn.pt"
     if args.load_model:
@@ -279,7 +279,13 @@ def main():
     
     if args.save_model:
         torch.save(model.state_dict(), model_path)
-    
+        """
+        if use_cuda:
+            model_path_cpu ="mnist_cnn_cpu.pt"
+            import copy
+            model2=copy.deepcopy(model)
+            torch.save(model2.to('cpu').state_dict(), model_path_cpu)
+        """
     if 1: # set 1 to show incorrect prediction image with binarization
         show_incorrect_image(model, device, test_loader)
     
