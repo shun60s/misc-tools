@@ -13,6 +13,7 @@ Check version:
     torch  1.7.1+cpu
     torchvision 0.8.2+cpu
     matplotlib 3.3.1
+    numpy 1.18.4
 """
 import argparse
 import torch
@@ -22,6 +23,7 @@ import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 
+import numpy as np
 
 class Net(nn.Module):
     def __init__(self):
@@ -51,25 +53,12 @@ class Net(nn.Module):
         x3 = torch.sigmoid(x3)               # use sigmoid to output range in 0-1.0
         
         x4= x3.unsqueeze(2).repeat(1,1,self.r3x3.size(0),1,1) # (128, 11, 3,3)
-        """
-        print ('x4 size', x4.size())
-        print ('x4 size[0,0]', x4[0,0].size())
-        print(x4[0,0].to('cpu').detach().numpy().copy())
-        """
+        
         # compute absolute value of difference
         x5=torch.abs(torch.sub(x4, self.r3x3))
-        """
-        print ('x5 size', x5.size())
-        print ('x5 size[0,0]', x5[0,0].size())
-        print(x5[0,0].to('cpu').detach().numpy().copy())
-        """
+        
         # compute average
         x6=torch.mean(x5.view(x5.size(0),x5.size(1),x5.size(2),9), dim=3, keepdim=True) # (128,11,1)
-        """
-        print ('65 size', x6.size())
-        print ('x6 size[0,0]', x6[0,0].size())
-        print(x6[0,0].to('cpu').detach().numpy().copy())
-        """
         
         x7 = torch.flatten(x6, 1) # (1408)
         x = self.fc1(x7)
@@ -163,6 +152,61 @@ def test(model, device, test_loader):
         100. * correct / len(test_loader.dataset)))
 
 
+def show_incorrect_image(model, device, test_loader, show_max_number=2):
+    # show incorrect prediction image with binarization
+    model.eval()
+    count=0
+    with torch.no_grad():
+        for data, target in test_loader:
+            data, target = data.to(device), target.to(device)
+            output = model(data)
+            pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
+            
+            for id, index in enumerate( torch.where(pred.eq(target.view_as(pred)) == False)[0]):
+                print ('id ', count)
+                print ('true_label', target[index.item()].item(), 'predict_label',pred[index.item()][0].item() )
+                print ('value_of_true_label', output[index.item()][target[index.item()].item()].item(), ' value_of_predict_label', output[index.item()][pred[index.item()][0].item()].item() )
+                # show incorrect digit binarization image
+                for y in range(28):
+                    for x in range(28):
+                        if  data[index.item()][0][y,x].item() > 0.0:
+                            print ( '1', end='')
+                        else:
+                            print ( '0', end='')
+                    print('')
+                
+                count+=1
+                if count >= show_max_number:
+                    break
+            
+            if count >= show_max_number:
+                    break
+
+
+def show_heat_map(model):
+	# import matplotlib to draw heat map
+    import matplotlib.pyplot as plt
+    
+    # show heat map of weights of last fully-connected layer, fc1(10, ...
+    
+    fc1 = model.state_dict()['fc1.weight'].to('cpu').detach().numpy().copy() # get weights of last fully-connected layer, fc1(10, ...
+    #print(fc1) # print out weights value
+    
+    # draw heat map
+    fig = plt.figure(figsize=(9, 3))
+    ax = fig.add_subplot(1,1,1)
+    d10_weights= np.abs(fc1)
+    ax.pcolor(d10_weights, cmap=plt.cm.Reds) # set color map to draw heat map
+    
+    ax.set_title(' heat map of weights of last fully-connected layer')
+    ax.set_ylabel('digits')
+    ax.set_xlabel('fc1 inputs')
+    ax.set_xticks(np.arange(int(fc1.shape[1] / model.lout))* model.lout) # auxiliary scale per one basis function
+    ax.set_yticks(np.arange(10))      # auxiliary scale per digit
+    plt.tight_layout()
+    plt.show()
+    
+
 def main():
     # Training settings
     parser = argparse.ArgumentParser(description='PyTorch MNIST digits classification using 3x3 pixels basis function ')
@@ -191,14 +235,14 @@ def main():
     args = parser.parse_args()
     use_cuda = args.use_cuda and torch.cuda.is_available()
     
-
+    
     torch.manual_seed(args.seed)
-
+    
     if use_cuda:
         device = torch.device("cuda")
     else:
         device = torch.device("cpu")
-
+    
     train_kwargs = {'batch_size': args.batch_size}
     test_kwargs = {'batch_size': args.test_batch_size}
     if use_cuda:
@@ -207,7 +251,7 @@ def main():
                        'shuffle': True}
         train_kwargs.update(cuda_kwargs)
         test_kwargs.update(cuda_kwargs)
-
+    
     transform=transforms.Compose([
         transforms.ToTensor(),
         transforms.Normalize((0.1307,), (0.3081,))
@@ -226,15 +270,21 @@ def main():
         model.load_state_dict(torch.load(model_path))
     
     optimizer = optim.Adadelta(model.parameters(), lr=args.lr)
-
+    
     scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
     for epoch in range(1, args.epochs + 1):
         train(args, model, device, train_loader, optimizer, epoch)
         test(model, device, test_loader)
         scheduler.step()
-
+    
     if args.save_model:
         torch.save(model.state_dict(), model_path)
+    
+    if 1: # set 1 to show incorrect prediction image with binarization
+        show_incorrect_image(model, device, test_loader)
+    
+    if 1: # set 1 to show heat map of weights of last fully-connected layer, fc1(10, ...
+        show_heat_map(model)
 
 
 if __name__ == '__main__':
