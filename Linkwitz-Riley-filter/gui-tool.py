@@ -169,7 +169,7 @@ class GUI_App(ttk.Frame):
         # Linkwitz-Riley　フィルタの応答算出
         self.h_lr_low  = self.h_bw_low**2
         self.h_lr_high = self.h_bw_high**2
-        # 2, 6, ... ��Linkwitz-Riley�@�t�B���^�̏ꍇ�A�Е��̋ɐ��𔽓]
+        # 2, 6, ... 次Linkwitz-Riley　フィルタの場合、片方の極性を反転
         self.h_lr_high = -self.h_lr_high if (self.order*2+2) % 4 == 0 else self.h_lr_high
     
     def plot_mag(self, w, h, label):
