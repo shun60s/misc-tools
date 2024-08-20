@@ -11,6 +11,14 @@
 # numpy 1.21.6
 # scipy 1.8.0
 # mathplotlib 3.5.2
+# --------------------
+#  Using
+# Python 3.10.12 (Ubuntu 22.04.4 LTS)
+# numpy 2.1.0
+# scipy 1.14.0
+# matplotlib 3.9.2
+#  
+# It may need that sudo apt-get install python3-pil python3-pil.imagetk.
 #  -----------
 
 import os
